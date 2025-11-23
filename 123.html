@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>경희대 불편지도 (Leaflet)</title>
+
+<!-- Leaflet 기본 CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+<style>
+  #map { width: 100%; height: 100vh; }
+</style>
+</head>
+<body>
+
+<!-- 우측 상단 링크 -->
+<div id="top-right-link">
+    <a href="https://example.com" target="_blank">관련 링크</a>
+</div>
+
+<div id="map"></div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+// 지도 생성 (경희대 국제캠퍼스 중심)
+var map = L.map('map').setView([37.2450, 127.0780], 16);
+
+// 무료 OpenStreetMap 타일 사용
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19
+}).addTo(map);
+
+// 빨간 점 아이콘
+var redIcon = L.icon({
+    iconUrl: 'https://i.imgur.com/1n1cO7v.png',
+    iconSize: [32, 32],
+    iconAnchor: [16, 32],
+    popupAnchor: [0, -32]
+});
+
+// 🔴 예시 마커 1 (체육대학관)
+L.marker([37.244355, 127.080297], {icon: redIcon})
+  .addTo(map)
+  .bindPopup("<b>체육대학관</b><br>미끄러운 바닥 / 배수 문제");
+
+// 🔴 예시 마커 2 (예술디자인대학)
+L.marker([37.241712, 127.084481], {icon: redIcon})
+  .addTo(map)
+  .bindPopup("<b>예술디자인대학</b><br>냉난방 문제 / 건물 노후화");
+
+L.marker([37.246286, 127.080751], {icon: redIcon})
+  .addTo(map)
+  .bindPopup("<b>공과대학</b><br>냉난방 문제 / 건물 노후화");
+
+L.marker([37.239524, 127.083507], {icon: redIcon})
+  .addTo(map)
+  .bindPopup("<b>전자정보대학</b><br>냉난방 문제 / 건물 노후화");
+
+L.marker([37.240798, 127.079514], {icon: redIcon})
+  .addTo(map)
+  .bindPopup("<b>중앙도서관</b><br>냉난방 문제 / 건물 노후화");
+
+L.marker([37.242743, 127.077345], {icon: redIcon})
+  .addTo(map)
+  .bindPopup("<b>남자기숙사</b><br>냉난방 문제 / 건물 노후화");
+
+L.marker([37.243669, 127.076913], {icon: redIcon})
+  .addTo(map)
+  .bindPopup("<b>여자기숙사</b><br>냉난방 문제 / 건물 노후화");
+
+L.marker([37.240798, 127.079514], {icon: redIcon})
+  .addTo(map)
+  .bindPopup("<b>응용과학대학</b><br>냉난방 문제 / 건물 노후화");
+
+</script>
+
+</body>
+</html>
+
